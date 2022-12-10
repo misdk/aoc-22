@@ -29,7 +29,7 @@ def parse_operations(file):
     return [Operation(int(line[1]), int(line[3]) - 1, int(line[5]) - 1) for line in lines]
 
 
-def parse_input_from_file(file_name):
+def parse_input(file_name):
     with open(file_name) as file:
         return parse_stacks_state(file), parse_operations(file)
 
@@ -41,8 +41,8 @@ def get_answer(state):
     return answer
 
 
-def part1():
-    state, operations = parse_input_from_file('day_5_part_1_input.txt')
+def part_1():
+    state, operations = parse_input('day_5_input.txt')
 
     for op in operations:
         for _ in range(op.number):
@@ -52,8 +52,8 @@ def part1():
     print(get_answer(state))
 
 
-def part2():
-    state, operations = parse_input_from_file('day_5_part_2_input.txt')
+def part_2():
+    state, operations = parse_input('day_5_input.txt')
 
     for op in operations:
         stack = state[op.start]
@@ -64,5 +64,5 @@ def part2():
 
 
 if __name__ == '__main__':
-    part1()
-    part2()
+    part_1()
+    part_2()

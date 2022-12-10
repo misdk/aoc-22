@@ -90,11 +90,7 @@ def find_dirs_sizes(tree_root):
     return dirs_sizes
 
 
-def part1():
-    data = parse_input('day_7_part_1_input.txt')
-    tree_root = build_file_tree(data)
-    dirs_sizes = find_dirs_sizes(tree_root)
-
+def part_1(dirs_sizes):
     answer = 0
     for _, size in dirs_sizes.items():
         if size <= 100000:
@@ -102,11 +98,7 @@ def part1():
     print(answer)
 
 
-def part2():
-    data = parse_input('day_7_part_2_input.txt')
-    tree_root = build_file_tree(data)
-    dirs_sizes = find_dirs_sizes(tree_root)
-
+def part_2(dirs_sizes, tree_root):
     disc_space = 70000000
     need_to_update = 30000000
     free_space = disc_space - dirs_sizes[tree_root]
@@ -117,6 +109,14 @@ def part2():
     print(size)
 
 
+def main():
+    data = parse_input('day_7_input.txt')
+    tree_root = build_file_tree(data)
+    dirs_sizes = find_dirs_sizes(tree_root)
+
+    part_1(dirs_sizes)
+    part_2(dirs_sizes, tree_root)
+
+
 if __name__ == '__main__':
-    part1()
-    part2()
+    main()

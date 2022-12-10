@@ -1,4 +1,4 @@
-input_name = 'input.txt'
+input_name = 'day_1_input.txt'
 
 with open(input_name) as file_input:
     lines = [line.strip() for line in file_input.readlines()]

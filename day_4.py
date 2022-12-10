@@ -11,8 +11,9 @@ def parse_sector(text):
     return Sector(points[0], points[1])
 
 
-def parse_groups(file) -> List[Group]:
-    lines = [line.strip() for line in file.readlines()]
+def parse_groups(file_name) -> List[Group]:
+    with open(file_name) as file:
+        lines = [line.strip() for line in file.readlines()]
     groups = []
     for line in lines:
         sectors = [parse_sector(sector) for sector in line.split(',')]
@@ -20,10 +21,7 @@ def parse_groups(file) -> List[Group]:
     return groups
 
 
-def part1():
-    with open('day_4_part_1_input.txt') as file:
-        groups = parse_groups(file)
-    
+def part_1(groups):    
     answer = 0
     for group in groups:
         first = group.first
@@ -34,10 +32,7 @@ def part1():
     print(answer)
 
 
-def part2():
-    with open('day_4_part_2_input.txt') as file:
-        groups = parse_groups(file)
-    
+def part_2(groups):
     answer = 0
     for group in groups:
         first = group.first
@@ -47,6 +42,11 @@ def part2():
     print(answer)
 
 
-if __name__ == "__main__":
-    part1()
-    part2()
+def main():
+    groups = parse_groups('day_4_input.txt')
+    part_1(groups)
+    part_2(groups)
+
+
+if __name__ == '__main__':
+    main()

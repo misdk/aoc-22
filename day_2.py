@@ -75,12 +75,7 @@ def count_score_for_second_player(first_shape, second_shape):
     return score
 
 
-def part_1():
-    input_name = 'day_2_part_1_input.txt'
-
-    with open(input_name) as file:
-        rounds = [line.split() for line in file.readlines()]
-    
+def part_1(rounds):
     final_score = 0
     for round in rounds:
         first_shape = decode_shape(round[0])
@@ -90,12 +85,7 @@ def part_1():
     print(final_score)
 
 
-def part_2():
-    input_name = 'day_2_part_2_input.txt'
-
-    with open(input_name) as file:
-        rounds = [line.split() for line in file.readlines()]
-
+def part_2(rounds):
     final_score = 0
     for round in rounds:
         first_shape = decode_shape(round[0])
@@ -107,8 +97,11 @@ def part_2():
 
 
 def main():
-    part_1()
-    part_2()
+    with open('day_2_input.txt') as file:
+        rounds = [line.split() for line in file.readlines()]
+
+    part_1(rounds)
+    part_2(rounds)
 
 
 if __name__ == '__main__':

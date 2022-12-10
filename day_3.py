@@ -23,8 +23,8 @@ def item_value(item):
     exit(-1)
 
 
-def part1():
-    with open('day_3_part_1_input.txt') as file:
+def part_1():
+    with open('day_3_input.txt') as file:
         answer = 0
         for line in file:
             string = line.strip()
@@ -63,8 +63,8 @@ def get_items_for_group(group):
     return first_set.intersection(second_set).intersection(third_set)
 
 
-def part2():
-    with open('day_3_part_2_input.txt') as file:
+def part_2():
+    with open('day_3_input.txt') as file:
         lines = [line.strip() for line in file.readlines()]
     groups = create_groups(lines)
     answer = 0
@@ -76,5 +76,5 @@ def part2():
 
 
 if __name__ == '__main__':
-    part1()
-    part2()
+    part_1()
+    part_2()

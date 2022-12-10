@@ -18,18 +18,21 @@ def find_marker_index(message, number):
     exit(-1)
 
 
-def part1():
-    message = parse_input('day_6_part_1_input.txt')
+def part_1(message):
     answer = find_marker_index(message, 4)
     print(answer)
 
 
-def part2():
-    message = parse_input('day_6_part_2_input.txt')
+def part_2(message):
     answer = find_marker_index(message, 14)
     print(answer)
 
 
+def main():
+    message = parse_input('day_6_input.txt')
+    part_1(message)
+    part_2(message)
+
+
 if __name__ == '__main__':
-    part1()
-    part2()
+    main()

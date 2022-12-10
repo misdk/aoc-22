@@ -5,8 +5,7 @@ def read_input(file_name):
     return lines
 
 
-def part1():
-    grid = read_input('day_8_part_1_input.txt')
+def part_1(grid):
     visible_trees = set()
 
     # left
@@ -58,9 +57,7 @@ def move(point, direction, grid_size):
     exit(-1, 'move error')
 
 
-def part2():
-    grid = read_input('day_8_part_2_input.txt')
-
+def part_2(grid):
     answer = 0
     grid_size = len(grid), len(grid[0])
     for x in range(len(grid)):
@@ -91,6 +88,11 @@ def part2():
     print(answer)
 
 
+def main():
+    grid = read_input('day_8_input.txt')
+    part_1(grid)
+    part_2(grid)
+
+
 if __name__ == '__main__':
-    part1()
-    part2()
+    main()

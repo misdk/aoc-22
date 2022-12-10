@@ -68,28 +68,27 @@ class Grid:
         exit(-1, 'Unhandled direction')
 
 
-def part1():
-    operations = read_input('day_9_part_1_input.txt')
-
-    grid = Grid(rope_size=2)
+def solve(operations, rope_size):
+    grid = Grid(rope_size=rope_size)
     for operation in operations:
         for _ in range(operation.value):
             grid.move(operation.direction)
+    return grid.get_tail_positions()
 
-    print(grid.get_tail_positions())
+
+def part_1(operations):
+    print(solve(operations, 2))
 
 
-def part2():
-    operations = read_input('day_9_part_2_input.txt')
+def part_2(operations):
+    print(solve(operations, 10))
 
-    grid = Grid(rope_size=10)
-    for operation in operations:
-        for _ in range(operation.value):
-            grid.move(operation.direction)
 
-    print(grid.get_tail_positions())
+def main():
+    operations = read_input('day_9_input.txt')
+    part_1(operations)
+    part_2(operations)
 
 
 if __name__ == '__main__':
-    part1()
-    part2()
+    main()
